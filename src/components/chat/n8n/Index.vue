@@ -1,7 +1,7 @@
 <template>
-	<div class="flex h-full flex-col">
-		<div class="flex-1 overflow-hidden">
-			<div class="h-full overflow-y-auto p-2 pb-0" id="chat-messages-container">
+	<div class="flex h-full flex-col overflow-hidden">
+		<div class="flex-1 overflow-y-auto">
+			<div class="h-full p-2 pb-0" id="chat-messages-container">
 				<h3 v-if="messages.length === 0" class="flex h-full items-center justify-center font-semibold">
 					{{ t("helpPrompt") }}
 				</h3>
