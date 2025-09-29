@@ -17,8 +17,6 @@
 
 A Interface de Chat Embarcada N8N é um componente web nativo moderno que permite a integração de workflows n8n como interfaces de chat interativas em qualquer website. A implementação requer apenas algumas linhas de código HTML para transformar automações n8n em interfaces conversacionais.
 
-![widget](./docs/animation_preview.gif)
-
 ### Funcionalidades Principais
 
 - **Integração Direta**: Implementação através de uma única tag `<script>` e uma linha de código HTML
@@ -80,8 +78,8 @@ A implementação está completa. O website agora possui um chatbot inteligente.
 ## Build Local e Desenvolvimento
 
 ```bash
-git clone https://github.com/symbiosika/n8n-embedded-chat-interface
-cd n8n-embedded-chat-interface
+git clone https://github.com/LGPDNOW/bravobot-proconjp
+cd bravobot-proconjp
 npm install
 npm run build
 npm run dev
