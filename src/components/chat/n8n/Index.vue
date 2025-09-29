@@ -1,6 +1,6 @@
 <template>
-	<div class="flex h-full flex-col justify-between gap-2">
-		<div class="h-full overflow-hidden">
+	<div class="flex h-full flex-col">
+		<div class="flex-1 overflow-hidden">
 			<div class="h-full overflow-y-auto p-2 pb-0" id="chat-messages-container">
 				<h3 v-if="messages.length === 0" class="flex h-full items-center justify-center font-semibold">
 					{{ t("helpPrompt") }}
@@ -21,7 +21,7 @@
 			</div>
 		</div>
 
-		<div class="p-2 pt-0">
+		<div class="flex-shrink-0 p-2 pt-0">
 			<div :class="{ '!border-primary': focused }" class="relative mx-auto w-full max-w-[666px] overflow-hidden rounded-md border duration-200 hover:border-primary/40 dark:border-zinc-700">
 				<!-- chat input -->
 				<Textarea @keydown.enter.exact.prevent="sendMessage(userInput)" v-model="userInput" :class="focused ? 'h-[84px]' : 'h-[32px]'" class="mb-2 resize-none transition-all duration-200" @blur="focused = false" :placeholder="t('askAnything')" @click="focused = true" />

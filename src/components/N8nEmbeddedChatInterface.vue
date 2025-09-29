@@ -25,7 +25,7 @@
 				</button>
 			</div>
 		</div>
-		<div class="h-[calc(100%-40px)] overflow-auto">
+		<div class="h-[calc(100%-40px)] overflow-hidden">
 			<!-- Render content based on mode prop -->
 			<template v-if="appConfig.mode === 'n8n'">
 				<ChatN8n />
