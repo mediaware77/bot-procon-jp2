@@ -33,16 +33,6 @@ export default defineConfig(({ mode }) => {
 			outDir: "output",
 			emptyOutDir: false,
 			cssCodeSplit: false,
-
-			lib: {
-				entry: "src/prod.ts",
-				formats: ["umd"],
-				name: "n8n-embedded-chat-interface",
-				fileName: () => "index.js",
-			},
-			rollupOptions: {
-				external: [],
-			},
 		},
 		resolve: {
 			alias: {
