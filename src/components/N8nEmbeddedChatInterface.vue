@@ -6,7 +6,7 @@
 		</span>
 	</div>
 
-	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-20 right-4 rounded-md border', 'fixed overflow-hidden bg-white dark:bg-neutral-950']" :style="!isMaximized ? { height: chatConfig.height, width: chatConfig.width } : {}">
+	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-20 right-4 h-[450px] w-[320px] rounded-md border', 'fixed overflow-hidden bg-white dark:bg-neutral-950']">
 		<div class="flex h-10 items-center justify-between bg-primary p-2">
 			<h1 class="text-sm text-white">{{ appConfig.label }}</h1>
 			<div class="flex items-center">
@@ -48,14 +48,12 @@ import ChatN8n from "@/components/chat/n8n/Index.vue";
 import { useDark, useToggle } from "@vueuse/core";
 import { useApp } from "@/stores/App";
 import { onBeforeMount } from "vue";
-import { getChatConfig, applyChatStyles } from "@/utils/config";
 
 // import SunIcon from "~icons/mdi/weather-sunny";
 // import MoonIcon from "~icons/mdi/weather-night";
 // import SettingsIcon from "~icons/ic/round-settings";
 
 const { isMaximized, show, appConfig } = useApp();
-const chatConfig = getChatConfig();
 
 const props = defineProps({ 
 	label: String, 
@@ -104,8 +102,6 @@ onBeforeMount(() => {
 		mode: parsedMode,
 		initialMessage: props.initialMessage ?? "",
 	};
-	// Apply chat styles from configuration
-	applyChatStyles(chatConfig);
 	console.log("appConfig", JSON.stringify(appConfig.value, null, 2));
 });
 </script>
