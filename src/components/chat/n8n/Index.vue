@@ -21,7 +21,7 @@
 		<div class="p-2 pt-0">
 			<div :class="{ '!border-primary': focused }" class="relative mx-auto w-full max-w-[666px] overflow-hidden rounded-md border duration-200 hover:border-primary/40 dark:border-zinc-700">
 				<!-- chat input -->
-				<Textarea @keydown.enter.exact.prevent="sendMessage(userInput)" v-model="userInput" :class="focused ? 'h-[84px]' : 'h-[32px]'" class="mb-2 resize-none transition-all duration-200" @blur="focused = false" :placeholder="t('askAnything')" @click="focused = true" :disabled="isLoading" />
+				<Textarea @keydown.enter.exact.prevent="sendMessage(userInput)" v-model="userInput" :class="focused ? 'h-[84px]' : 'h-[32px]'" class="mb-2 resize-none transition-all duration-200" @blur="focused = false" :placeholder="isLoading ? t('waiting') : t('askAnything')" @click="focused = true" :disabled="isLoading" />
 
 				<div class="flex w-full justify-between bg-white p-1 dark:bg-zinc-900">
 					<!-- options (nur Reset) -->

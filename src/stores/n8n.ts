@@ -12,6 +12,7 @@ export const useN8n = createGlobalState(() => {
 	const userInput = ref("");
 	const isLoading = ref(false);
 	const sessionId = ref<string | null>(null);
+	const protocolNumber = ref<string | null>(null);
 
 	const sendMessage = async (chatInput: string) => {
 		if (chatInput.trim() === "") {
@@ -29,8 +30,16 @@ export const useN8n = createGlobalState(() => {
 		messages.value.push({ role: "user", content: chatInput });
 		userInput.value = "";
 
+		// Gerar número de protocolo na primeira mensagem
+		if (!protocolNumber.value) {
+			protocolNumber.value = Date.now().toString();
+		}
+
 		try {
-			const body: Record<string, any> = { chatInput };
+			const body: Record<string, any> = {
+				chatInput,
+				protocolNumber: protocolNumber.value
+			};
 			if (sessionId.value) body.sessionId = sessionId.value;
 
 			const response = await fetch(appConfig.value.hostname, {
@@ -66,8 +75,9 @@ export const useN8n = createGlobalState(() => {
 		userInput.value = "";
 		isLoading.value = false;
 		sessionId.value = null;
+		protocolNumber.value = null;
 		initializeChat();
 	};
 
-	return { messages, userInput, sendMessage, isLoading, clearChat, initializeChat };
+	return { messages, userInput, sendMessage, isLoading, clearChat, initializeChat, protocolNumber };
 });

@@ -6,9 +6,12 @@
 		</span>
 	</div>
 
-	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-20 right-4 h-[450px] w-[320px] rounded-md border', 'fixed overflow-hidden bg-white dark:bg-neutral-950']">
-		<div class="flex h-10 items-center justify-between bg-primary p-2">
-			<h1 class="text-sm text-white">{{ appConfig.label }}</h1>
+	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-20 right-4 h-[450px] w-[320px] rounded-md border', 'fixed flex flex-col overflow-hidden bg-white dark:bg-neutral-950']">
+		<div class="flex items-center justify-between bg-primary p-2">
+			<div>
+				<h1 class="text-sm text-white">{{ appConfig.label }}</h1>
+				<p v-if="protocolNumber" style="font-size: 11px; color: #fbbf24">Protocolo {{ protocolNumber }}</p>
+			</div>
 			<div class="flex items-center">
 				<!-- TODO: add settings icon -->
 				<!-- <button class="flex size-7 cursor-pointer items-center justify-center rounded-md p-[5px] text-white hover:bg-white/15">
@@ -25,7 +28,7 @@
 				</button>
 			</div>
 		</div>
-		<div class="h-[calc(100%-40px)] overflow-auto">
+		<div class="flex-1 overflow-auto">
 			<!-- Render content based on mode prop -->
 			<template v-if="appConfig.mode === 'n8n'">
 				<ChatN8n />
@@ -47,6 +50,7 @@ import ChatN8n from "@/components/chat/n8n/Index.vue";
 
 import { useDark, useToggle } from "@vueuse/core";
 import { useApp } from "@/stores/App";
+import { useN8n } from "@/stores/n8n";
 import { onBeforeMount } from "vue";
 
 // import SunIcon from "~icons/mdi/weather-sunny";
@@ -54,6 +58,7 @@ import { onBeforeMount } from "vue";
 // import SettingsIcon from "~icons/ic/round-settings";
 
 const { isMaximized, show, appConfig } = useApp();
+const { protocolNumber } = useN8n();
 
 const props = defineProps({ 
 	label: String, 
