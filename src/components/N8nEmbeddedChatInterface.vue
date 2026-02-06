@@ -6,23 +6,16 @@
 		</div>
 	</div>
 
-	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-24 right-4 h-[450px] w-[320px] rounded-md border', 'fixed flex flex-col overflow-hidden bg-white dark:bg-neutral-950']">
-		<div class="flex items-center justify-between bg-primary p-2">
-			<div>
-				<h1 class="text-sm text-white">{{ appConfig.label }}</h1>
-				<p v-if="protocolNumber" style="font-size: 11px; color: #fbbf24">Protocolo {{ protocolNumber }}</p>
+	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-24 right-4 h-[450px] w-[320px] rounded-2xl', 'fixed flex flex-col overflow-hidden bg-gray-50']">
+		<div class="flex items-center justify-between border-b border-gray-200 bg-white/80 p-2">
+			<div class="flex items-center gap-2">
+				<div>
+					<h1 class="text-sm font-bold text-[#374151]">{{ appConfig.label }}</h1>
+					<p v-if="protocolNumber" class="text-[11px] text-gray-500">Protocolo {{ protocolNumber }}</p>
+				</div>
 			</div>
 			<div class="flex items-center">
-				<!-- TODO: add settings icon -->
-				<!-- <button class="flex size-7 cursor-pointer items-center justify-center rounded-md p-[5px] text-white hover:bg-white/15">
-					<SettingsIcon />
-				</button> -->
-				<!-- TODO: add dark mode toggle -->
-				<!-- <button class="mr-1 flex size-7 cursor-pointer items-center justify-center rounded-md text-white hover:bg-white/15" @click="toggleDark()">
-					<SunIcon v-if="!isDark" />
-					<MoonIcon v-else />
-				</button> -->
-				<button class="flex size-7 cursor-pointer items-center justify-center rounded-md text-white hover:bg-white/15" @click="isMaximized = !isMaximized">
+				<button class="flex size-7 cursor-pointer items-center justify-center rounded-md text-gray-600 hover:bg-gray-100" @click="isMaximized = !isMaximized">
 					<Maximize v-if="!isMaximized" />
 					<ShrinkIcon v-else />
 				</button>

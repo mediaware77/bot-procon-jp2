@@ -4,6 +4,22 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-06] Neutralizar cores do widget chatbot
+
+**Arquivos alterados:** `src/components/N8nEmbeddedChatInterface.vue`, `src/components/chat/n8n/Index.vue`, `src/styles/input.css`
+
+**Descrição:** Substituída toda a paleta de cores vibrantes (roxo #7C3AED, lavanda #F5F0FF, verde menta #86EFAC, vermelho) por uma paleta neutra de cinzas. O widget agora usa fundo gray-50, bolhas do usuário em gray-800, botão enviar em gray-800, scrollbar em gray-400/500, e demais elementos em tons de cinza. Isso garante que o chatbot combine com qualquer esquema de cores do site onde for embarcado. Também removido o avatar do header e a borda esquerda colorida.
+
+---
+
+## [2026-02-06] Redesign visual do widget chatbot
+
+**Arquivos alterados:** `src/components/N8nEmbeddedChatInterface.vue`, `src/components/chat/n8n/Index.vue`, `src/i18n.ts`, `src/styles/input.css`
+
+**Descrição:** Redesign completo do visual do chatbot com esquema lavanda/roxo. Container com fundo lavanda (#F5F0FF), bordas arredondadas 16px e borda esquerda verde menta (#86EFAC). Header claro (branco/lavanda) com avatar, nome em negrito e protocolo em roxo. Bolhas do bot com fundo branco e sombra sutil, bolhas do usuário em roxo (#7C3AED). Input com cantos arredondados, placeholder "Digite sua pergunta..." e botão enviar vermelho. Botão limpar e maximize em roxo. Scrollbar em roxo.
+
+---
+
 ## [2026-02-05] Ajustar botão flutuante e remover avatar do header
 
 **Arquivo alterado:** `src/components/N8nEmbeddedChatInterface.vue`

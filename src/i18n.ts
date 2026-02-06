@@ -6,15 +6,15 @@ const messages = {
 	en: {
 		uploadingArtifacts: "Uploading artifacts",
 		thinking: "Pensando...",
-		helpPrompt: "What can I help with?",
-		askAnything: "pode começar a digitar...",
+		helpPrompt: "Olá! Como posso ajudar?",
+		askAnything: "Digite sua pergunta...",
 		waiting: "⏳",
 	},
 	de: {
 		uploadingArtifacts: "Lade Anhänge hoch",
 		thinking: "Pensando...",
-		helpPrompt: "Womit kann ich helfen?",
-		askAnything: "pode começar a digitar...",
+		helpPrompt: "Olá! Como posso ajudar?",
+		askAnything: "Digite sua pergunta...",
 		waiting: "⏳",
 	},
 };

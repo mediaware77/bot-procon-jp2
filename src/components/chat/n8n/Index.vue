@@ -8,12 +8,12 @@
 				<div v-else>
 					<div v-for="(msg, idx) in messages" :key="idx" class="mb-2">
 						<div :class="msg.role === 'user' ? 'text-right' : 'text-left'">
-							<div v-if="msg.role === 'user'" class="inline-block max-w-[80%] rounded bg-primary px-3 py-2 text-white" style="font-size: var(--chat-font-size-user, 14px)">
+							<div v-if="msg.role === 'user'" class="inline-block max-w-[80%] rounded-xl bg-gray-800 px-3 py-2 text-white" style="font-size: var(--chat-font-size-user, 14px)">
 								{{ msg.content }}
 							</div>
 							<div v-else class="flex items-start gap-2">
 								<img :src="consueloAvatar" alt="Consuelo" class="mt-1 size-8 flex-shrink-0 rounded-full" />
-								<Renderer class="inline-block max-w-[80%] rounded bg-gray-200 px-3 py-2 dark:bg-zinc-800" :content="msg.content" />
+								<Renderer class="inline-block max-w-[80%] rounded-xl bg-white px-3 py-2 shadow-sm" :content="msg.content" />
 							</div>
 						</div>
 					</div>
@@ -22,20 +22,20 @@
 		</div>
 
 		<div class="p-2 pt-0">
-			<div :class="{ '!border-primary': focused }" class="relative mx-auto w-full max-w-[666px] overflow-hidden rounded-md border duration-200 hover:border-primary/40 dark:border-zinc-700">
+			<div :class="{ '!border-gray-400': focused }" class="relative mx-auto w-full max-w-[666px] overflow-hidden rounded-xl border bg-white duration-200 hover:border-gray-300 dark:border-zinc-700">
 				<!-- chat input -->
-				<Textarea @keydown.enter.exact.prevent="sendMessage(userInput)" v-model="userInput" :class="focused ? 'h-[84px]' : 'h-[32px]'" class="mb-2 resize-none transition-all duration-200" @blur="focused = false" :placeholder="isLoading ? t('waiting') : t('askAnything')" @click="focused = true" :disabled="isLoading" />
+				<Textarea @keydown.enter.exact.prevent="sendMessage(userInput)" v-model="userInput" :class="focused ? 'h-[84px]' : 'h-[36px]'" class="mb-2 resize-none px-3 py-2 transition-all duration-200" @blur="focused = false" :placeholder="isLoading ? t('waiting') : t('askAnything')" @click="focused = true" :disabled="isLoading" />
 
 				<div class="flex w-full justify-between bg-white p-1 dark:bg-zinc-900">
 					<!-- options (nur Reset) -->
 					<div class="flex items-center gap-1">
-						<Button class="size-8 rounded-full border p-0 text-neutral-600 hover:bg-neutral-200" variant="secondary" @click="clearChat" :disabled="isLoading">
+						<Button class="size-8 rounded-full border p-0 text-gray-500 hover:bg-gray-100" variant="secondary" @click="clearChat" :disabled="isLoading">
 							<FluentErase24Regular class="text-lg" />
 						</Button>
 					</div>
 					<div class="flex items-center gap-2">
 						<Thinking v-if="isLoading" class="m-[5px]" />
-						<Button class="size-8 rounded-full p-0" @click="sendMessage(userInput)" :disabled="isLoading">
+						<Button class="size-8 rounded-full bg-gray-800 p-0 text-white hover:bg-gray-700" @click="sendMessage(userInput)" :disabled="isLoading">
 							<PaperPlaneIcon class="text-lg" />
 						</Button>
 					</div>
