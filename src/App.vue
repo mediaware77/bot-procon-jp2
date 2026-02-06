@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<N8nEmbeddedChatInterface label="Agente Virtual do Procon" description="Assistente virtual do Procon" :hostname="testUrl" mode="n8n" open-on-start="true" initial-message="Como posso te ajudar? 😊" />
+		<N8nEmbeddedChatInterface label="Consuelo - Agente Virtual" description="Assistente virtual do Procon" :hostname="testUrl" mode="n8n" open-on-start="true" initial-message="Como posso te ajudar? 😊" />
 	</div>
 </template>
 <script setup>
