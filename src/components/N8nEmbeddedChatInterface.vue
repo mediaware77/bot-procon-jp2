@@ -1,5 +1,8 @@
 <template>
-	<div class="fixed bottom-4 right-4 size-[72px] cursor-pointer" @click="show = !show">
+	<div class="floating-btn fixed bottom-4 right-4 flex cursor-pointer items-center gap-3" @click="show = !show">
+		<div v-if="!show" class="floating-label rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-lg">
+			Iniciar conversa
+		</div>
 		<img v-if="!show" :src="consueloAvatar" alt="Consuelo" class="size-[72px] rounded-full shadow-lg transition-transform hover:scale-110" />
 		<div v-else class="flex size-[72px] items-center justify-center rounded-full bg-primary">
 			<Close class="size-9 text-white" />
@@ -104,3 +107,12 @@ onBeforeMount(() => {
 	console.log("appConfig", JSON.stringify(appConfig.value, null, 2));
 });
 </script>
+
+<style scoped>
+.floating-label {
+	display: none;
+}
+.floating-btn:hover .floating-label {
+	display: block;
+}
+</style>
