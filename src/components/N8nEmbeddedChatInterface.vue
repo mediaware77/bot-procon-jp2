@@ -1,9 +1,9 @@
 <template>
-	<div class="fixed bottom-4 right-4 size-14 cursor-pointer rounded-full bg-primary" @click="show = !show">
-		<span class="flex h-full select-none items-center justify-center text-xl text-white [&>*]:size-8">
-			<Question v-if="!show" />
-			<Close v-else />
-		</span>
+	<div class="fixed bottom-4 right-4 size-14 cursor-pointer" @click="show = !show">
+		<img v-if="!show" :src="consueloAvatar" alt="Consuelo" class="size-14 rounded-full shadow-lg transition-transform hover:scale-110" />
+		<div v-else class="flex size-14 items-center justify-center rounded-full bg-primary">
+			<Close class="size-8 text-white" />
+		</div>
 	</div>
 
 	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-20 right-4 h-[450px] w-[320px] rounded-md border', 'fixed flex flex-col overflow-hidden bg-white dark:bg-neutral-950']">

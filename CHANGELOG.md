@@ -4,6 +4,14 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-05] Substituir botão de abrir chat pelo avatar da Consuelo
+
+**Arquivo alterado:** `src/components/N8nEmbeddedChatInterface.vue`
+
+**Descrição:** O botão flutuante que abria o chatbot (círculo com ícone de interrogação) foi substituído pela imagem da Consuelo, tornando o ponto de entrada do chat mais visual e alinhado com a identidade do agente virtual.
+
+---
+
 ## [2026-02-05] Adicionar avatar da Consuelo ao chatbot
 
 **Arquivos alterados:** `src/components/chat/n8n/Index.vue`, `src/components/N8nEmbeddedChatInterface.vue`, `src/assets/consuelo-avatar.png`
