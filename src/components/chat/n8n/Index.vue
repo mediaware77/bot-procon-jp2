@@ -24,7 +24,7 @@
 		<div class="p-2 pt-0">
 			<div class="relative mx-auto w-full max-w-[666px] overflow-hidden rounded-xl border bg-white duration-200 hover:border-gray-300 dark:border-zinc-700">
 				<!-- chat input -->
-				<Textarea @keydown.enter.exact.prevent="sendMessage(userInput)" v-model="userInput" class="h-[36px] resize-none px-3 py-2" :placeholder="isLoading ? t('waiting') : t('askAnything')" :disabled="isLoading" />
+				<Textarea @keydown.enter.exact.prevent="sendMessage(userInput)" v-model="userInput" ref="textareaRef" class="max-h-[120px] min-h-[36px] resize-none overflow-y-auto px-3 py-2" :placeholder="isLoading ? t('waiting') : t('askAnything')" :disabled="isLoading" />
 
 				<div class="flex w-full justify-end bg-white p-1 dark:bg-zinc-900">
 					<div class="flex items-center gap-2">
@@ -46,12 +46,27 @@ import Thinking from "@/components/Thinking.vue";
 import { useN8n } from "@/stores/n8n";
 import Renderer from "@/components/markdown/Renderer.vue";
 import { useI18n } from "vue-i18n";
-import { onMounted, watch, nextTick } from "vue";
+import { ref, onMounted, watch, nextTick } from "vue";
 import consueloAvatar from "@/assets/consuelo-avatar.png";
 import { scrollToLatestMessage } from "@/utils/chat";
 
 const { t } = useI18n();
 const { messages, userInput, sendMessage, isLoading, initializeChat } = useN8n();
+
+const textareaRef = ref<InstanceType<typeof Textarea> | null>(null);
+
+function autoResize() {
+	const el = textareaRef.value?.$el as HTMLTextAreaElement | undefined;
+	if (el) {
+		el.style.height = "auto";
+		el.style.height = el.scrollHeight + "px";
+	}
+}
+
+watch(userInput, async () => {
+	await nextTick();
+	autoResize();
+});
 
 onMounted(() => {
 	initializeChat();
