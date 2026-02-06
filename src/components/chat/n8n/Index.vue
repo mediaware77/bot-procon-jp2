@@ -22,17 +22,11 @@
 		</div>
 
 		<div class="p-2 pt-0">
-			<div :class="{ '!border-gray-400': focused }" class="relative mx-auto w-full max-w-[666px] overflow-hidden rounded-xl border bg-white duration-200 hover:border-gray-300 dark:border-zinc-700">
+			<div class="relative mx-auto w-full max-w-[666px] overflow-hidden rounded-xl border bg-white duration-200 hover:border-gray-300 dark:border-zinc-700">
 				<!-- chat input -->
-				<Textarea @keydown.enter.exact.prevent="sendMessage(userInput)" v-model="userInput" :class="focused ? 'h-[84px]' : 'h-[36px]'" class="mb-2 resize-none px-3 py-2 transition-all duration-200" @blur="focused = false" :placeholder="isLoading ? t('waiting') : t('askAnything')" @click="focused = true" :disabled="isLoading" />
+				<Textarea @keydown.enter.exact.prevent="sendMessage(userInput)" v-model="userInput" class="h-[36px] resize-none px-3 py-2" :placeholder="isLoading ? t('waiting') : t('askAnything')" :disabled="isLoading" />
 
-				<div class="flex w-full justify-between bg-white p-1 dark:bg-zinc-900">
-					<!-- options (nur Reset) -->
-					<div class="flex items-center gap-1">
-						<Button class="size-8 rounded-full border p-0 text-gray-500 hover:bg-gray-100" variant="secondary" @click="clearChat" :disabled="isLoading">
-							<FluentErase24Regular class="text-lg" />
-						</Button>
-					</div>
+				<div class="flex w-full justify-end bg-white p-1 dark:bg-zinc-900">
 					<div class="flex items-center gap-2">
 						<Thinking v-if="isLoading" class="m-[5px]" />
 						<Button class="size-8 rounded-full bg-gray-800 p-0 text-white hover:bg-gray-700" @click="sendMessage(userInput)" :disabled="isLoading">
@@ -51,15 +45,13 @@ import PaperPlaneIcon from "~icons/fluent/send-24-regular";
 import Thinking from "@/components/Thinking.vue";
 import { useN8n } from "@/stores/n8n";
 import Renderer from "@/components/markdown/Renderer.vue";
-import FluentErase24Regular from "~icons/fluent/eraser-24-regular";
 import { useI18n } from "vue-i18n";
 import { onMounted, watch, nextTick } from "vue";
 import consueloAvatar from "@/assets/consuelo-avatar.png";
 import { scrollToLatestMessage } from "@/utils/chat";
 
 const { t } = useI18n();
-const { messages, userInput, sendMessage, isLoading, clearChat, initializeChat } = useN8n();
-const focused = ref(false);
+const { messages, userInput, sendMessage, isLoading, initializeChat } = useN8n();
 
 onMounted(() => {
 	initializeChat();

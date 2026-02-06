@@ -1,5 +1,5 @@
 <template>
-	<div class="floating-btn fixed bottom-4 right-4 flex cursor-pointer items-center gap-3" @click="show = !show">
+	<div v-if="!startedFullscreen" class="floating-btn fixed bottom-4 right-4 flex cursor-pointer items-center gap-3" @click="show = !show">
 		<div v-if="!show" class="floating-label rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-lg">
 			Iniciar conversa
 		</div>
@@ -48,7 +48,7 @@ import consueloAvatar from "@/assets/consuelo-avatar.png";
 import { useDark, useToggle } from "@vueuse/core";
 import { useApp } from "@/stores/App";
 import { useN8n } from "@/stores/n8n";
-import { onBeforeMount } from "vue";
+import { onBeforeMount, ref as vueRef } from "vue";
 
 // import SunIcon from "~icons/mdi/weather-sunny";
 // import MoonIcon from "~icons/mdi/weather-night";
@@ -57,15 +57,16 @@ import { onBeforeMount } from "vue";
 const { isMaximized, show, appConfig } = useApp();
 const { protocolNumber } = useN8n();
 
-const props = defineProps({ 
-	label: String, 
-	description: String, 
-	token: String, 
-	organisationId: String, 
-	assistant: String, 
-	hostname: String, 
-	mode: String, 
+const props = defineProps({
+	label: String,
+	description: String,
+	token: String,
+	organisationId: String,
+	assistant: String,
+	hostname: String,
+	mode: String,
 	openOnStart: String,
+	openFullscreen: String,
 	initialMessage: String,
 	// Custom color scheme props (max 10 colors)
 	primaryColor: String,
@@ -79,6 +80,8 @@ const props = defineProps({
 	warningColor: String,
 	errorColor: String
 });
+
+const startedFullscreen = vueRef(props.openFullscreen === "true");
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -96,7 +99,9 @@ const parseMode = (input?: string): Mode => {
 const parsedMode = parseMode(props.mode);
 
 onBeforeMount(() => {
-	show.value = props.openOnStart === "true";
+	const isFullscreenStart = props.openFullscreen === "true";
+	show.value = props.openOnStart === "true" || isFullscreenStart;
+	isMaximized.value = isFullscreenStart;
 	appConfig.value = {
 		label: props.label ?? "",
 		description: props.description ?? "",

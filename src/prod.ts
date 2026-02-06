@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import N8nEmbeddedChatInterface from "./components/N8nEmbeddedChatInterface.vue";
 import i18n from "./i18n";
 import { useCustomColors, type ColorProps } from "./composables/useCustomColors";
+import { useApp } from "./stores/App";
 
 class N8nEmbeddedChatInterfaceElement extends HTMLElement {
 	connectedCallback() {
@@ -24,6 +25,12 @@ class N8nEmbeddedChatInterfaceElement extends HTMLElement {
 		const app = createApp(N8nEmbeddedChatInterface, props);
 		app.use(i18n);
 		app.mount(mountPoint);
+	}
+
+	openFullscreen() {
+		const { show, isMaximized } = useApp();
+		show.value = true;
+		isMaximized.value = true;
 	}
 
 	// Generate custom color CSS based on attributes using the secure composable
@@ -76,4 +83,12 @@ fetch(new URL("./styles/output.css", import.meta.url))
 			}
 		}
 		customElements.define("n8n-embedded-chat-interface", N8nEmbeddedChatInterfaceElementWithStyles);
+
+		// Registrar função global para abrir o chat em tela cheia
+		(window as any).openChatFullscreen = () => {
+			const el = document.querySelector("n8n-embedded-chat-interface") as N8nEmbeddedChatInterfaceElement | null;
+			if (el) {
+				el.openFullscreen();
+			}
+		};
 	});

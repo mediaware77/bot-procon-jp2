@@ -4,6 +4,22 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-06] Link para abrir chatbot em tela cheia
+
+**Arquivos alterados:** `src/components/N8nEmbeddedChatInterface.vue`, `src/prod.ts`
+
+**Descrição:** Adicionada funcionalidade para abrir o chatbot diretamente em tela cheia de duas formas: (1) prop `open-fullscreen="true"` para páginas dedicadas ao chat, que abre em fullscreen sem botão flutuante; (2) função global `window.openChatFullscreen()` para links em páginas que já têm o widget embarcado, permitindo uso via `<a onclick="openChatFullscreen()">`. O método `openFullscreen()` também está disponível diretamente no custom element.
+
+---
+
+## [2026-02-06] Remover botão limpar conversa e fixar input em 1 linha
+
+**Arquivos alterados:** `src/components/chat/n8n/Index.vue`
+
+**Descrição:** Removido o botão de limpar conversa (ícone de borracha) da barra inferior do chat. Campo de digitação alterado para altura fixa de 1 linha, sem expansão ao focar. Removidos imports e variáveis não utilizados (`FluentErase24Regular`, `clearChat`, `focused`).
+
+---
+
 ## [2026-02-06 01:13] Label "Iniciar conversa" com hover — `bec0a52`
 
 **Arquivos alterados:** `src/components/N8nEmbeddedChatInterface.vue`, `src/App.vue`
