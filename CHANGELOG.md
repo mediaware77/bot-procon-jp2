@@ -4,6 +4,14 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-06 02:03] Auto-expandir textarea do chat — `67d8ea9`
+
+**Arquivos alterados:** `src/components/chat/n8n/Index.vue`
+
+**Descrição:** A caixa de texto do chat agora cresce automaticamente conforme o usuário digita textos com mais de uma linha, indo de 36px (mínimo) até 120px (máximo ~5 linhas), com scroll após esse limite. Ao enviar a mensagem, a caixa volta ao tamanho mínimo.
+
+---
+
 ## [2026-02-06 01:53] Aumentar botão, janela responsiva e fontes do chatbot — `8f300d8`
 
 **Arquivos alterados:** `src/components/N8nEmbeddedChatInterface.vue`, `src/components/ui/textarea/Textarea.vue`, `src/utils/config.ts`
