@@ -4,6 +4,14 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-06 01:13] Label "Iniciar conversa" com hover — `bec0a52`
+
+**Arquivos alterados:** `src/components/N8nEmbeddedChatInterface.vue`, `src/App.vue`
+
+**Descrição:** Label "Iniciar conversa" adicionada ao botão flutuante do chatbot, oculta por padrão e visível ao passar o mouse sobre o avatar. Implementado com CSS scoped (`.floating-btn:hover .floating-label`) ao invés de Tailwind `group-hover`, que não estava disponível no CSS pré-compilado do Shadow DOM. Também ajustado `open-on-start` para `false` no App.vue.
+
+---
+
 ## [2026-02-06] Neutralizar cores do widget chatbot
 
 **Arquivos alterados:** `src/components/N8nEmbeddedChatInterface.vue`, `src/components/chat/n8n/Index.vue`, `src/styles/input.css`
