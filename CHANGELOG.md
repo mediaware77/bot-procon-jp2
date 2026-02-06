@@ -4,7 +4,7 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
-## [2026-02-06] Link para abrir chatbot em tela cheia
+## [2026-02-06 02:06] Link para abrir chatbot em tela cheia — `aac45e4`
 
 **Arquivos alterados:** `src/components/N8nEmbeddedChatInterface.vue`, `src/prod.ts`
 
