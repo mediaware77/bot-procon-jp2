@@ -4,6 +4,14 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-05] Ajustar botão flutuante e remover avatar do header
+
+**Arquivo alterado:** `src/components/N8nEmbeddedChatInterface.vue`
+
+**Descrição:** Aumentado o tamanho do botão flutuante da Consuelo de 56px para 72px e removido o avatar duplicado do header do chat, mantendo apenas o nome.
+
+---
+
 ## [2026-02-05] Substituir botão de abrir chat pelo avatar da Consuelo
 
 **Arquivo alterado:** `src/components/N8nEmbeddedChatInterface.vue`

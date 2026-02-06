@@ -1,19 +1,16 @@
 <template>
-	<div class="fixed bottom-4 right-4 size-14 cursor-pointer" @click="show = !show">
-		<img v-if="!show" :src="consueloAvatar" alt="Consuelo" class="size-14 rounded-full shadow-lg transition-transform hover:scale-110" />
-		<div v-else class="flex size-14 items-center justify-center rounded-full bg-primary">
-			<Close class="size-8 text-white" />
+	<div class="fixed bottom-4 right-4 size-[72px] cursor-pointer" @click="show = !show">
+		<img v-if="!show" :src="consueloAvatar" alt="Consuelo" class="size-[72px] rounded-full shadow-lg transition-transform hover:scale-110" />
+		<div v-else class="flex size-[72px] items-center justify-center rounded-full bg-primary">
+			<Close class="size-9 text-white" />
 		</div>
 	</div>
 
-	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-20 right-4 h-[450px] w-[320px] rounded-md border', 'fixed flex flex-col overflow-hidden bg-white dark:bg-neutral-950']">
+	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-24 right-4 h-[450px] w-[320px] rounded-md border', 'fixed flex flex-col overflow-hidden bg-white dark:bg-neutral-950']">
 		<div class="flex items-center justify-between bg-primary p-2">
-			<div class="flex items-center gap-2">
-				<img :src="consueloAvatar" alt="Consuelo" class="size-8 rounded-full border border-white/30" />
-				<div>
-					<h1 class="text-sm text-white">{{ appConfig.label }}</h1>
-					<p v-if="protocolNumber" style="font-size: 11px; color: #fbbf24">Protocolo {{ protocolNumber }}</p>
-				</div>
+			<div>
+				<h1 class="text-sm text-white">{{ appConfig.label }}</h1>
+				<p v-if="protocolNumber" style="font-size: 11px; color: #fbbf24">Protocolo {{ protocolNumber }}</p>
 			</div>
 			<div class="flex items-center">
 				<!-- TODO: add settings icon -->
