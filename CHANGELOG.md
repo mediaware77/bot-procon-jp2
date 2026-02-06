@@ -4,6 +4,14 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-06 01:53] Aumentar botão, janela responsiva e fontes do chatbot — `8f300d8`
+
+**Arquivos alterados:** `src/components/N8nEmbeddedChatInterface.vue`, `src/components/ui/textarea/Textarea.vue`, `src/utils/config.ts`
+
+**Descrição:** Botão flutuante da Consuelo aumentado de 72px para 91px. Botão de fechar substituído por texto "FECHAR X". Janela do chatbot agora tem tamanhos responsivos por breakpoint: mobile 320×450, tablet 400×550, desktop 450×600. Fontes do cabeçalho (text-base), mensagens do bot (15px), headers do bot (18px), mensagens do usuário (16px) e caixa de texto (text-base) foram aumentadas para melhor legibilidade.
+
+---
+
 ## [2026-02-06 02:06] Link para abrir chatbot em tela cheia — `aac45e4`
 
 **Arquivos alterados:** `src/components/N8nEmbeddedChatInterface.vue`, `src/prod.ts`
