@@ -8,9 +8,12 @@
 
 	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-20 right-4 h-[450px] w-[320px] rounded-md border', 'fixed flex flex-col overflow-hidden bg-white dark:bg-neutral-950']">
 		<div class="flex items-center justify-between bg-primary p-2">
-			<div>
-				<h1 class="text-sm text-white">{{ appConfig.label }}</h1>
-				<p v-if="protocolNumber" style="font-size: 11px; color: #fbbf24">Protocolo {{ protocolNumber }}</p>
+			<div class="flex items-center gap-2">
+				<img :src="consueloAvatar" alt="Consuelo" class="size-8 rounded-full border border-white/30" />
+				<div>
+					<h1 class="text-sm text-white">{{ appConfig.label }}</h1>
+					<p v-if="protocolNumber" style="font-size: 11px; color: #fbbf24">Protocolo {{ protocolNumber }}</p>
+				</div>
 			</div>
 			<div class="flex items-center">
 				<!-- TODO: add settings icon -->
@@ -47,6 +50,7 @@ import Close from "~icons/material-symbols/close-rounded";
 import ShrinkIcon from "~icons/lucide/shrink";
 
 import ChatN8n from "@/components/chat/n8n/Index.vue";
+import consueloAvatar from "@/assets/consuelo-avatar.png";
 
 import { useDark, useToggle } from "@vueuse/core";
 import { useApp } from "@/stores/App";

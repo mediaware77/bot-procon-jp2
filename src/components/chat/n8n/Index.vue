@@ -11,7 +11,10 @@
 							<div v-if="msg.role === 'user'" class="inline-block max-w-[80%] rounded bg-primary px-3 py-2 text-white" style="font-size: var(--chat-font-size-user, 14px)">
 								{{ msg.content }}
 							</div>
-							<Renderer class="inline-block max-w-[80%] rounded bg-gray-200 px-3 py-2 dark:bg-zinc-800" v-else :content="msg.content" />
+							<div v-else class="flex items-start gap-2">
+								<img :src="consueloAvatar" alt="Consuelo" class="mt-1 size-8 flex-shrink-0 rounded-full" />
+								<Renderer class="inline-block max-w-[80%] rounded bg-gray-200 px-3 py-2 dark:bg-zinc-800" :content="msg.content" />
+							</div>
 						</div>
 					</div>
 				</div>
@@ -51,6 +54,7 @@ import Renderer from "@/components/markdown/Renderer.vue";
 import FluentErase24Regular from "~icons/fluent/eraser-24-regular";
 import { useI18n } from "vue-i18n";
 import { onMounted, watch, nextTick } from "vue";
+import consueloAvatar from "@/assets/consuelo-avatar.png";
 import { scrollToLatestMessage } from "@/utils/chat";
 
 const { t } = useI18n();
