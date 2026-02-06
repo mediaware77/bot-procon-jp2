@@ -11,9 +11,9 @@ export interface ChatConfig {
 const defaultConfig: ChatConfig = {
   height: '460px',
   width: '320px',
-  fontSizeUser: '14px',
-  fontSizeBot: '13px',
-  fontSizeBotHeaders: '16px'
+  fontSizeUser: '16px',
+  fontSizeBot: '15px',
+  fontSizeBotHeaders: '18px'
 };
 
 // Get chat configuration from environment variables with fallbacks

@@ -3,17 +3,17 @@
 		<div v-if="!show" class="floating-label rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-lg">
 			Iniciar conversa
 		</div>
-		<img v-if="!show" :src="consueloAvatar" alt="Consuelo" class="size-[72px] rounded-full shadow-lg transition-transform hover:scale-110" />
-		<div v-else class="flex size-[72px] items-center justify-center rounded-full bg-primary">
-			<Close class="size-9 text-white" />
+		<img v-if="!show" :src="consueloAvatar" alt="Consuelo" class="size-[91px] rounded-full shadow-lg transition-transform hover:scale-110" />
+		<div v-else class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-lg">
+			FECHAR X
 		</div>
 	</div>
 
-	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-24 right-4 h-[450px] w-[320px] rounded-2xl', 'fixed flex flex-col overflow-hidden bg-gray-50']">
+	<div v-if="show" :class="[isMaximized ? 'inset-0' : 'shadow-main-ui bottom-[100px] right-4 h-[450px] w-[320px] md:h-[550px] md:w-[400px] lg:h-[600px] lg:w-[450px] rounded-2xl', 'fixed flex flex-col overflow-hidden bg-gray-50']">
 		<div class="flex items-center justify-between border-b border-gray-200 bg-white/80 p-2">
 			<div class="flex items-center gap-2">
 				<div>
-					<h1 class="text-sm font-bold text-[#374151]">{{ appConfig.label }}</h1>
+					<h1 class="text-base font-bold text-[#374151]">{{ appConfig.label }}</h1>
 					<p v-if="protocolNumber" class="text-[11px] text-gray-500">Protocolo {{ protocolNumber }}</p>
 				</div>
 			</div>
