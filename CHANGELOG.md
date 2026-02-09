@@ -4,6 +4,14 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-09] Servir chatbot.js no dev server via Vite plugin — `e4f82a8`
+
+**Arquivos alterados:** `vite.config.ts`
+
+**Descrição:** Adicionado plugin Vite `serve-chatbot-js` que redireciona requisições a `/chatbot.js` para `/src/prod.ts`, permitindo que o Vite processe e sirva o JavaScript completo do chatbot em `http://localhost:5173/chatbot.js`.
+
+---
+
 ## [2026-02-06 02:03] Auto-expandir textarea do chat — `67d8ea9`
 
 **Arquivos alterados:** `src/components/chat/n8n/Index.vue`

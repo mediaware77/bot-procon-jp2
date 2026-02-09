@@ -12,6 +12,17 @@ export default defineConfig(({ mode }) => {
 
 	return {
 		plugins: [
+			{
+				name: 'serve-chatbot-js',
+				configureServer(server) {
+					server.middlewares.use((req, _res, next) => {
+						if (req.url === '/chatbot.js') {
+							req.url = '/src/prod.ts';
+						}
+						next();
+					});
+				},
+			},
 			vue(),
 			vueDevTools(),
 			replace({
