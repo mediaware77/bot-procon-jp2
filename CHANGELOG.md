@@ -4,6 +4,14 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-09] Servir bundle UMD completo em /chatbot.js no dev server
+
+**Arquivos alterados:** `vite.config.ts`
+
+**Descrição:** O plugin `serve-chatbot-js` agora serve diretamente o arquivo `output/index.js` (bundle UMD completo, 335KB) em `/chatbot.js`, em vez de redirecionar para `/src/prod.ts` que o Vite transformava em ESM com imports soltos (3.4KB) inutilizáveis por páginas externas.
+
+---
+
 ## [2026-02-09] Restaurar build UMD do chatbot
 
 **Arquivos alterados:** `vite.config.ts`
