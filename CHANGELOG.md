@@ -4,6 +4,14 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-09] Restaurar build UMD do chatbot
+
+**Arquivos alterados:** `vite.config.ts`
+
+**Descrição:** Restaurada a configuração `lib` (entry `src/prod.ts`, formato UMD, fileName `index.js`) e `rollupOptions` na seção `build` do `vite.config.ts`, que havia sido removida no commit `3f64d3c`. Sem ela o build gerava apenas uma SPA com arquivos hasheados, impedindo o carregamento do chatbot em páginas externas como `fishies.html`.
+
+---
+
 ## [2026-02-09] Servir chatbot.js no dev server via Vite plugin — `e4f82a8`
 
 **Arquivos alterados:** `vite.config.ts`
