@@ -4,6 +4,14 @@ Documento que registra todas as melhorias, correções e ajustes realizados no p
 
 ---
 
+## [2026-02-09] Renomear build output para chatbot.js
+
+**Arquivos alterados:** `vite.config.ts`
+
+**Descrição:** O fileName do build UMD foi alterado de `index.js` para `chatbot.js`, para que o CDN (`cdnproconjp.bravonix.services/chatbot.js`) sirva o arquivo JS diretamente em vez de fazer fallback para `index.html` (SPA).
+
+---
+
 ## [2026-02-09] Servir bundle UMD completo em /chatbot.js no dev server
 
 **Arquivos alterados:** `vite.config.ts`

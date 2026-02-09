@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
 				configureServer(server) {
 					server.middlewares.use((req, res, next) => {
 						if (req.url === '/chatbot.js') {
-							const filePath = path.resolve(__dirname, 'output/index.js');
+							const filePath = path.resolve(__dirname, 'output/chatbot.js');
 							if (fs.existsSync(filePath)) {
 								res.setHeader('Content-Type', 'text/javascript');
 								fs.createReadStream(filePath).pipe(res);
@@ -54,7 +54,7 @@ export default defineConfig(({ mode }) => {
 				entry: "src/prod.ts",
 				formats: ["umd"],
 				name: "n8n-embedded-chat-interface",
-				fileName: () => "index.js",
+				fileName: () => "chatbot.js",
 			},
 			rollupOptions: {
 				external: [],
